@@ -6,14 +6,7 @@
 		"build": "turbo run build",
 		"dev": "turbo run dev",
 		"lint": "turbo run lint",
-		"fmt": "prettier --write .",
-		"check-types": "turbo run check-types",
-		"cuthan": "pnpm --filter cuthan --",
-		"cuthan:fmt": "pnpm --filter cuthan exec prettier --write .",
-		"stone": "pnpm --filter @voken/stone --",
-		"stone:fmt": "pnpm --filter @voken/stone exec prettier --write .",
-		"ui": "pnpm --filter @voken/ui --",
-		"ui:fmt": "pnpm --filter @voken/ui exec prettier --write ."
+		"fmt": "prettier --write --check ."
 	},
 	"devDependencies": {
 		"prettier": "^3.6.2",
