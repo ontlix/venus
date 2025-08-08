@@ -1,0 +1,4 @@
+# .pnpmrc
+auto-install-peers = true
+shared-workspace-lockfile = true
+inject-workspace-packages=true
