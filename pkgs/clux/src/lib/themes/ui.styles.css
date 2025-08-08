@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+@import './ui.colors.css' layer(theme);
+@plugin '@egoist/tailwindcss-icons';
+/* pass options to the plugin */
+@plugin '@egoist/tailwindcss-icons' {
+	scale: 1.5;
+}
+
+
+@custom-variant data-filled (&[data-ui~="filled"]);
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+
+.unbar::-webkit-scrollbar {
+	display: none;
+}

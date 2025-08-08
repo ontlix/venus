@@ -126,8 +126,6 @@ export * as default from './elements/__index__.js';`;
 	console.log(`Generated folder export file: ${folderFile}`);
 }
 
-
-
 export async function generateComponents() {
 	console.log('Starting component generation process...');
 	const components = findComponents();
@@ -138,32 +136,30 @@ export async function generateComponents() {
 	}
 
 	for (const { dir, subComponents, rootFile } of components) {
-	const folderName = path.basename(dir);
+		const folderName = path.basename(dir);
 
-	const isSingleRootOnly =
-		subComponents.length === 1 &&
-		subComponents[0] === folderName &&
-		rootFile === `${folderName}.svelte`;
+		const isSingleRootOnly =
+			subComponents.length === 1 &&
+			subComponents[0] === folderName &&
+			rootFile === `${folderName}.svelte`;
 
-	if (isSingleRootOnly) {
-		console.log(`Processing ${dir} as single-root-only`);
-		generateExportFile(dir, subComponents);
-		generateFolderExportFile(dir, subComponents); // <--- Pass subComponents
-	} else if (rootFile) {
-		console.log(`Processing ${dir} with root file: ${rootFile}`);
-		ensureFolderFile(dir);
-		generateRootComponentFile(dir, subComponents, rootFile);
-	} else {
-		console.log(`Processing ${dir} with no root file`);
-		generateExportFile(dir, subComponents);
-		generateFolderExportFile(dir, subComponents); // <--- Pass subComponents
+		if (isSingleRootOnly) {
+			console.log(`Processing ${dir} as single-root-only`);
+			generateExportFile(dir, subComponents);
+			generateFolderExportFile(dir, subComponents); // <--- Pass subComponents
+		} else if (rootFile) {
+			console.log(`Processing ${dir} with root file: ${rootFile}`);
+			ensureFolderFile(dir);
+			generateRootComponentFile(dir, subComponents, rootFile);
+		} else {
+			console.log(`Processing ${dir} with no root file`);
+			generateExportFile(dir, subComponents);
+			generateFolderExportFile(dir, subComponents); // <--- Pass subComponents
+		}
 	}
-}
-
 
 	console.log('Component generation completed.');
 }
-
 
 function generateComponentsIndex(baseDir = 'src/lib/components') {
 	const outputFile = path.join(baseDir, 'index.ts');
@@ -196,7 +192,10 @@ function generateComponentsIndex(baseDir = 'src/lib/components') {
 	}
 
 	walk(baseDir);
-	fs.writeFileSync(outputFile, `// This file is auto-generated. Do not edit manually.\n${exports.join('\n')}\n`);
+	fs.writeFileSync(
+		outputFile,
+		`// This file is auto-generated. Do not edit manually.\n${exports.join('\n')}\n`
+	);
 	console.log(`Generated components index: ${outputFile}`);
 }
 (async () => {
