@@ -6,7 +6,8 @@
 		"build": "turbo run build",
 		"dev": "turbo run dev",
 		"lint": "turbo run lint",
-		"fmt": "prettier --write --check ."
+		"fmt": "prettier --write --check .",
+		"ui": "pnpm --filter @voken/ui --"
 	},
 	"devDependencies": {
 		"prettier": "^3.6.2",
