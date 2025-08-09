@@ -7,10 +7,10 @@ import Madex from './elements/madex.svelte';
 import Trigger from './elements/trigger.svelte';
 
 type TaboxType = typeof Root & {
-  Content: SubComponent<typeof Content>;
-  List: SubComponent<typeof List>;
-  Madex: SubComponent<typeof Madex>;
-  Trigger: SubComponent<typeof Trigger>;
+	Content: SubComponent<typeof Content>;
+	List: SubComponent<typeof List>;
+	Madex: SubComponent<typeof Madex>;
+	Trigger: SubComponent<typeof Trigger>;
 };
 
 const Tabox = Root as TaboxType;

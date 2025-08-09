@@ -6,9 +6,9 @@ import Madex from './elements/madex.svelte';
 import Trigger from './elements/trigger.svelte';
 
 type HoverType = typeof Root & {
-  Content: SubComponent<typeof Content>;
-  Madex: SubComponent<typeof Madex>;
-  Trigger: SubComponent<typeof Trigger>;
+	Content: SubComponent<typeof Content>;
+	Madex: SubComponent<typeof Madex>;
+	Trigger: SubComponent<typeof Trigger>;
 };
 
 const Hover = Root as HoverType;

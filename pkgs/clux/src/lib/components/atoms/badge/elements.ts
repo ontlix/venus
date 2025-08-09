@@ -4,7 +4,7 @@ import Root from './elements/badge.svelte';
 import Group from './elements/group.svelte';
 
 type BadgeType = typeof Root & {
-  Group: SubComponent<typeof Group>;
+	Group: SubComponent<typeof Group>;
 };
 
 const Badge = Root as BadgeType;

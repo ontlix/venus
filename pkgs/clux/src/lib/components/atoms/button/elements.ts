@@ -4,7 +4,7 @@ import Root from './elements/button.svelte';
 import Group from './elements/group.svelte';
 
 type ButtonType = typeof Root & {
-  Group: SubComponent<typeof Group>;
+	Group: SubComponent<typeof Group>;
 };
 
 const Button = Root as ButtonType;

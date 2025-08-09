@@ -2,14 +2,19 @@ import type { Styles } from '$lib/types/styles.js';
 import type { SvelteHTMLElements } from 'svelte/elements';
 
 const styles = {
-	x: {
+	core: {
 		typography: 'font-semibold'
 	},
-	is: {},
-	opt: {
+	mult: {
 		variant: {
 			solid: {
-				layout: ''
+				typography: 'text-white',
+				background: 'bg-indigo-500 hover:bg-indigo-400',
+				border: [
+					'focus-visible:outline-2',
+					'focus-visible:outline-offset-2',
+					'focus-visible:outline-indigo-500'
+				]
 			}
 		},
 		size: {
@@ -39,14 +44,29 @@ const styles = {
 				typography: 'text-sm'
 			}
 		}
+	},
+	cond: {
+		loading: {
+			animation: 'animate-spin cursor-not-allowed'
+		}
 	}
 } satisfies Styles;
+
+type StyleProps<T extends Styles> = {
+	// Conditional styles: boolean or undefined
+	[K in keyof T['cond']]?: boolean;
+} & {
+	// Multiple-choice styles: option name or undefined
+	[K in keyof T['mult']]?: keyof T['mult'][K];
+};
+
+//type ButtonStyleProps = StyleProps<typeof styles>;
 
 export const button = {
 	styles
 };
 
-type Base = SvelteHTMLElements['button'] & SvelteHTMLElements['a'];
+type Base = SvelteHTMLElements['button'] & SvelteHTMLElements['a'] & StyleProps<typeof styles>;
 export interface XButton extends Base {
 	content?: string;
 	color?: string;

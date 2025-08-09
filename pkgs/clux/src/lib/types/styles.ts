@@ -11,104 +11,104 @@ export type State = {
 /**
  * Interface defining the types of CSS classes in TailwindCSS
  */
-
+type Value = string | string[];
 export type Utility = {
 	/**
 	 * General layout such as 'container', 'block', 'aspect-ratio'
 	 * @see https://tailwindcss.com/docs/aspect-ratio
 	 */
-	layout?: string;
+	layout?: Value;
 	/**
 	 * Flexbox layout such as 'flex', 'flex-row', 'gap-x-5', 'justify-center'
 	 * @see https://tailwindcss.com/docs/flex-basis
 	 */
-	flex?: string;
+	flex?: Value;
 	/**
 	 * Grid layout such as 'grid', 'grid-cols-3', 'gap-4'
 	 * @see https://tailwindcss.com/docs/grid-template-columns
 	 */
-	grid?: string;
+	grid?: Value;
 	/**
 	 * Spacing like 'm-4', 'p-4', 'space-x-4'
 	 * @see https://tailwindcss.com/docs/padding
 	 */
-	spacing?: string;
+	spacing?: Value;
 	/**
 	 * Sizing elements such as 'w-full', 'h-64'
 	 * @see https://tailwindcss.com/docs/width
 	 */
-	sizing?: string;
+	sizing?: Value;
 	/**
 	 * Typography like 'text-base', 'font-bold'
 	 * @see https://tailwindcss.com/docs/font-family
 	 */
-	typography?: string;
+	typography?: Value;
 	/**
 	 * Background properties such as 'bg-blue-500', 'bg-opacity-75'
 	 * @see https://tailwindcss.com/docs/background-attachment
 	 */
-	background?: string;
+	background?: Value;
 	/**
 	 * Borders such as 'border', 'border-gray-300', 'rounded-lg'
 	 * @see https://tailwindcss.com/docs/border-radius
 	 */
-	border?: string;
+	border?: Value;
 	/**
 	 * Visual effects like 'shadow', 'opacity-50'
 	 * @see https://tailwindcss.com/docs/box-shadow
 	 */
-	effect?: string;
+	effect?: Value;
 	/**
 	 * Filters like 'filter', 'blur-sm', 'brightness-150'
 	 * @see https://tailwindcss.com/docs/blur
 	 */
-	filter?: string;
+	filter?: Value;
 	/**
 	 * Table styling such as 'table', 'table-auto', 'table-fixed'
 	 * @see https://tailwindcss.com/docs/table-layout
 	 */
-	table?: string; // Fixed typo: 'strin' -> 'string'
+	table?: Value; // Fixed typo: 'strin' -> 'string'
 	/**
 	 * Transitions like 'transition', 'duration-300'
 	 * @see https://tailwindcss.com/docs/transition-property
 	 */
-	transition?: string;
+	transition?: Value;
 	/**
 	 * Animations such as 'animate-bounce', 'animate-spin'
 	 * @see https://tailwindcss.com/docs/animation
 	 */
-	animation?: string;
+	animation?: Value;
 	/**
 	 * Transforms like 'transform', 'scale-100', 'rotate-45'
 	 * @see https://tailwindcss.com/docs/scale
 	 */
-	transform?: string;
+	transform?: Value;
 	/**
 	 * Combined motion properties including transition, animation and transform
 	 * @see https://tailwindcss.com/docs/transition-property
 	 * @see https://tailwindcss.com/docs/animation
 	 * @see https://tailwindcss.com/docs/scale
 	 */
-	motion?: string; // Fixed reference to non-existent ClassUtility type
+	motion?: Value; // Fixed reference to non-existent ClassUtility type
 	/**
 	 * Interactivity like 'cursor-pointer', 'select-none'
 	 * @see https://tailwindcss.com/docs/accent-color
 	 */
-	interactive?: string;
+	interactive?: Value;
 	/**
 	 * Styling SVG elements such as 'fill-current', 'stroke-current'
 	 * @see https://tailwindcss.com/docs/fill
 	 */
-	svg?: string;
+	svg?: Value;
 	/**
 	 * Accessibility like 'sr-only', 'not-sr-only'
 	 * @see https://tailwindcss.com/docs/screen-readers
 	 */
-	accessible?: string;
+	accessible?: Value;
 	/**
 	 * Anything beyond above categories or custom classes
 	 */
-	custom?: string;
+	custom?: Value;
 };
 
 /**

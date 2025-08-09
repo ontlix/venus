@@ -4,7 +4,7 @@ import Root from './elements/input.svelte';
 import Group from './elements/group.svelte';
 
 type InputType = typeof Root & {
-  Group: SubComponent<typeof Group>;
+	Group: SubComponent<typeof Group>;
 };
 
 const Input = Root as InputType;
