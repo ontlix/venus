@@ -115,7 +115,7 @@ export type Utility = {
  * Recursive definition for nested styles
  */
 export type Styles = {
-	[key: string]: Utility | Styles | Value;
+	[key: string]: Utility | Styles;
 };
 
 /**

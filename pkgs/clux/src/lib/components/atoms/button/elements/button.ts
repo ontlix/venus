@@ -2,8 +2,10 @@ import type { Styles } from '$lib/types/styles.js';
 import type { SvelteHTMLElements } from 'svelte/elements';
 
 const styles = {
-	typography: 'font-semibold',
-	layout: 'relative',
+	core: {
+		typography: 'font-semibold',
+		layout: 'relative'
+	},
 	mult: {
 		variant: {
 			solid: {

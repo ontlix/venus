@@ -28,7 +28,7 @@ export type DeepClass<T> = {
 } & {
 	[K in keyof T as T[K] extends string | string[]
 		? never
-		: K extends 'cond' | 'mult'
+		: K extends 'core' | 'mult' | 'cond'
 			? never
 			: K]: T[K] extends object ? DeepClass<T[K]> : T[K];
 };
