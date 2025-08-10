@@ -1,9 +1,16 @@
 <script lang="ts">
-	import type { XButton } from './button.js';
+	/** Imports  */
+	import { useUI } from '$lib/composables/use.ui.js';
+	import { button, type XButton } from './button.js';
 
-	let { children, dis = $bindable(), color = 'primary', href, ...props }: XButton = $props();
+	/** Props  */
+	let { children, dis = $bindable(null), color = 'primary', href, ...props }: XButton = $props();
+
+	/** Styles  */
+	const ui = useUI(button.styles, props);
 </script>
 
-<svelte:element this={href ? 'a' : 'button'} {...props}>
+<svelte:element this={href ? 'a' : 'button'} {...props} class={ui.class}>
+	{JSON.stringify(ui.class)}
 	{@render children?.()}
 </svelte:element>

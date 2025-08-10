@@ -2,9 +2,8 @@ import type { Styles } from '$lib/types/styles.js';
 import type { SvelteHTMLElements } from 'svelte/elements';
 
 const styles = {
-	core: {
-		typography: 'font-semibold'
-	},
+	typography: 'font-semibold',
+	layout: 'relative',
 	mult: {
 		variant: {
 			solid: {
@@ -46,18 +45,18 @@ const styles = {
 		}
 	},
 	cond: {
-		loading: {
-			animation: 'animate-spin cursor-not-allowed'
+		rounded: {
+			border: 'rounded-full'
 		}
 	}
 } satisfies Styles;
 
 type StyleProps<T extends Styles> = {
 	// Conditional styles: boolean or undefined
-	[K in keyof T['cond']]?: boolean;
+	[K in keyof T['cond'] as `ui-${Extract<K, string>}`]?: boolean;
 } & {
 	// Multiple-choice styles: option name or undefined
-	[K in keyof T['mult']]?: keyof T['mult'][K];
+	[K in keyof T['mult'] as `ui-${Extract<K, string>}`]?: keyof T['mult'][K];
 };
 
 //type ButtonStyleProps = StyleProps<typeof styles>;
@@ -68,7 +67,6 @@ export const button = {
 
 type Base = SvelteHTMLElements['button'] & SvelteHTMLElements['a'] & StyleProps<typeof styles>;
 export interface XButton extends Base {
-	content?: string;
 	color?: string;
-	dis?: HTMLElement;
+	dis?: HTMLElement | null;
 }

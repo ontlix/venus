@@ -9,6 +9,7 @@ export { default as UComand } from '$lib/components/atoms/comand/elements.js';
 export { default as UContex } from '$lib/components/atoms/contex/elements.js';
 export { default as UDasten } from '$lib/components/atoms/dasten/elements.js';
 export { default as UField } from '$lib/components/atoms/field/elements.js';
+export { default as UGrade } from '$lib/components/atoms/grade/elements.js';
 export { default as UHover } from '$lib/components/atoms/hover/elements.js';
 export { default as UIcon } from '$lib/components/atoms/icon/elements.js';
 export { default as UInput } from '$lib/components/atoms/input/elements.js';
