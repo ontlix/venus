@@ -28,7 +28,7 @@ export const accord = {
 	styles
 };
 type WithoutItem<T> = {
-	[K in keyof T as K extends `item${string}` | "item" ? never : K]: T[K];
+	[K in keyof T as K extends `item${string}` | 'item' ? never : K]: T[K];
 };
 
 export type XAccord = WithoutItem<AccordionRootProps> & {

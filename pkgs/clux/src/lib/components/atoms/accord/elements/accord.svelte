@@ -12,12 +12,8 @@
 <Primitive.Root {...props} class={ui.class}>
 	{#each items as it}
 		<Primitive.Item value="item-1" class={ui.item.class}>
-			<Primitive.Trigger class={ui.item.invoke.class}>
-                
-            </Primitive.Trigger>
-			<Primitive.Content class={ui.item.inside.class}>
-
-            </Primitive.Content>
+			<Primitive.Trigger class={ui.item.invoke.class}></Primitive.Trigger>
+			<Primitive.Content class={ui.item.inside.class}></Primitive.Content>
 		</Primitive.Item>
 	{/each}
 </Primitive.Root>

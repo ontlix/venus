@@ -1,7 +1,7 @@
 {
 	"name": "voken",
 	"private": true,
-	"packageManager": "pnpm@10.0.0",
+	"packageManager": "pnpm@10.14.0",
 	"scripts": {
 		"build": "turbo run build",
 		"dev": "turbo run dev",

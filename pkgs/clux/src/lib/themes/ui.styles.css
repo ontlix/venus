@@ -1,5 +1,7 @@
 @import 'tailwindcss';
-@import './ui.colors.css' layer(theme);
+@import './ui.motion.css';
+@import './ui.colors.css';
+
 @plugin '@egoist/tailwindcss-icons';
 /* pass options to the plugin */
 @plugin '@egoist/tailwindcss-icons' {

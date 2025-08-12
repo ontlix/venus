@@ -1,6 +1,7 @@
 <script lang="ts">
 	/** Imports  */
 	import { useUI } from '$lib/composables/use.ui.js';
+	import { mask } from '$lib/utils/wind.js';
 	import { button, type XButton } from './button.js';
 
 	/** Props  */
@@ -10,7 +11,6 @@
 	const ui = useUI(button.styles, props);
 </script>
 
-<svelte:element this={href ? 'a' : 'button'} {...props} class={ui.class}>
-	{JSON.stringify(ui.class)}
+<svelte:element this={href ? 'a' : 'button'} {...props} style={mask(color)} class={ui.class}>
 	{@render children?.()}
 </svelte:element>

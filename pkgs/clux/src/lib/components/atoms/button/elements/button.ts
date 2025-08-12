@@ -1,3 +1,4 @@
+import type { Color } from '$lib/types/colors.js';
 import type { Styles } from '$lib/types/styles.js';
 import type { SvelteHTMLElements } from 'svelte/elements';
 
@@ -10,15 +11,20 @@ const styles = {
 		variant: {
 			solid: {
 				typography: 'text-white',
-				background: 'bg-indigo-500 hover:bg-indigo-400',
+				background: 'bg-custom-500 hover:bg-custom-400',
 				border: [
 					'focus-visible:outline-2',
 					'focus-visible:outline-offset-2',
-					'focus-visible:outline-indigo-500'
+					'focus-visible:outline-custom-500'
 				]
 			}
 		},
 		size: {
+			md: {
+				border: 'rounded-md',
+				spacing: 'px-2.5 py-1.5',
+				typography: 'text-sm'
+			},
 			xs: {
 				border: 'rounded-sm',
 				spacing: 'px-2 py-1',
@@ -27,11 +33,6 @@ const styles = {
 			sm: {
 				border: 'rounded-sm',
 				spacing: 'px-2 py-1',
-				typography: 'text-sm'
-			},
-			md: {
-				border: 'rounded-md',
-				spacing: 'px-2.5 py-1.5',
 				typography: 'text-sm'
 			},
 			lg: {
@@ -69,6 +70,6 @@ export const button = {
 
 type Base = SvelteHTMLElements['button'] & SvelteHTMLElements['a'] & StyleProps<typeof styles>;
 export interface XButton extends Base {
-	color?: string;
+	color?: Color;
 	dis?: HTMLElement | null;
 }

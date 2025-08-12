@@ -56,13 +56,22 @@ export function useUI<T extends Styles>(
 	function walk(node: any, path: string[] = []): any {
 		let result: any = { class: '' };
 
-		// Collect classes from direct string or string[] keys
+		// 1️⃣ Add core styles first
+		if (node.core) {
+			if (typeof node.core === 'string') {
+				result.class = merge(result.class, node.core);
+			} else if (Array.isArray(node.core) && node.core.every((v: any) => typeof v === 'string')) {
+				result.class = merge(result.class, node.core.join(' '));
+			} else if (typeof node.core === 'object') {
+				result.class = merge(result.class, stringify(node.core));
+			}
+		}
+
+		// 2️⃣ Process normal keys (skip core/mult/cond)
 		for (const key in node) {
+			if (key === 'core' || key === 'cond' || key === 'mult') continue;
+
 			const value = node[key];
-
-			// Skip cond/mult here, handle separately
-			if (key === 'cond' || key === 'mult') continue;
-
 			if (typeof value === 'string') {
 				result.class = merge(result.class, value);
 			} else if (Array.isArray(value) && value.every((v) => typeof v === 'string')) {
@@ -72,22 +81,25 @@ export function useUI<T extends Styles>(
 			}
 		}
 
-		// Handle cond: only add classes for truthy props
+		// 3️⃣ Handle cond: look for ui-[propName]
 		if (node.cond && typeof node.cond === 'object') {
 			for (const condKey in node.cond) {
-				if (props[condKey]) {
+				const propName = `ui-${condKey}`;
+				if (props[propName]) {
 					result.class = merge(result.class, stringify(node.cond[condKey]));
 				}
 			}
 		}
 
-		// Handle mult: pick first option in each group
+		// 4️⃣ Handle mult: look for ui-[propName], default to first option
 		if (node.mult && typeof node.mult === 'object') {
 			for (const multKey in node.mult) {
 				const group = node.mult[multKey];
-				const firstKey = Object.keys(group)[0];
-				if (firstKey && group[firstKey]) {
-					result.class = merge(result.class, stringify(group[firstKey]));
+				const propName = `ui-${multKey}`;
+				const propVal = props[propName];
+				const selectedKey = propVal && group[propVal] ? propVal : Object.keys(group)[0];
+				if (selectedKey && group[selectedKey]) {
+					result.class = merge(result.class, stringify(group[selectedKey]));
 				}
 			}
 		}
