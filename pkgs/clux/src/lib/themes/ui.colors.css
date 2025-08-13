@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import '$lib/themes/ui.default.css';
 
 @theme static {
 	/* Primary (Sky) */

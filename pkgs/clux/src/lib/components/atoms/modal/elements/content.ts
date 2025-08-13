@@ -21,5 +21,5 @@ export const modalContent = {
 };
 
 export type XModalContent = Primitive.ContentProps & {
-	portal?: Primitive.PortalProps['to']
+	portal?: Primitive.PortalProps['to'];
 };

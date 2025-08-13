@@ -11,11 +11,11 @@ const styles = {
 		variant: {
 			solid: {
 				typography: 'text-white',
-				background: 'bg-custom-500 hover:bg-custom-400',
+				background: 'bg-custom-500 hover:bg-custom-600',
 				border: [
 					'focus-visible:outline-2',
 					'focus-visible:outline-offset-2',
-					'focus-visible:outline-custom-500'
+					'focus-visible:outline-custom-500 dark:focus-visible:outline-custom-600'
 				]
 			}
 		},

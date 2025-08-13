@@ -1,2 +1,2 @@
 @import 'tailwindcss';
-@import '../themes/ui.styles.css';
+@import '$lib/themes/ui.styles.css';
